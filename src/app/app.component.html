@@ -1,0 +1,38 @@
+<h1>Todo List</h1>
+<div>
+    <form>
+        <input type="email" [(ngModel)]="email">
+        <input type="password" [(ngModel)]="password">
+        <input type="submit">
+    </form>
+</div>
+<div>
+    <input type="text" #newTodo/>
+    <button (click)="add(newTodo.value);newTodo.value='';">add</button>
+</div>
+<br>
+<div>
+    <input type="text" #newTodo2/>
+    <button class="button1" (click)="create(newTodo2.value);newTodo2.value=''">create</button>
+
+</div>
+<hr/>
+<table>
+    <tr *ngFor="let todo of todos">
+        <td>{{todo.id}}#</td>
+        <td>{{todo.label}}</td>
+        <td>{{todo.done ? '&#10003;' : '&#10005;'}}</td>
+        <td><button (click)="delete(todo)">delete</button></td>
+        <td><button (click)="toggle(todo)">toggle</button></td>
+    </tr>
+</table>
+<hr/>
+<table>
+    <tr *ngFor="let todo1 of toDo">
+        <td>{{todo1.id}}#</td>
+        <td>{{todo1.label}}</td>
+        <td>{{todo1.done ? '&#10003;' : '&#10005;'}}</td>
+        <td><button (click)="delete1(todo1)" class="button1">delete</button></td>
+        <td><button (click)="toggle(todo1)" class="button1">toggle</button></td>
+    </tr>
+</table>
